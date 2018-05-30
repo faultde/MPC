@@ -66,25 +66,31 @@ h1 {
 }
 
 #pad-container {
-  position: relative;
+  position: relative;;
+  display: inline-block;
   border: 3px solid black;
   height: 150px;
   width: 200px;
   top: 120px;
   left: 15px;
-  padding: 6px;
-  padding-bottom: 1px;
+  text-align: center;
+  padding-top: 13px;
 }
 
 #pad {
   position: relative;
   display: inline-block;
-  border-bottom: 4px solid black;
-  border-right: 3px solid black;
+  margin: auto;
+  border-bottom: 2px solid black;
+  border-right: 1px solid black;
   height: 40px;
-  width: 40px;
-  padding: 1px;
+  width: 21%;
   background: grey;
+
+  
+}
+#pad:active{
+     border-bottom: 1px solid black;
 }
 
 #dial {
@@ -202,15 +208,6 @@ h1 {
   transform: rotate(45deg);
 }
 
-.button-container {
-  position: relative;
-  border: 3px solid black;
-  left: 310px;
-  bottom: 170px;
-  width: 150px;
-  height: 80px;
-  display: inline-block;
-}
 
 input[type="range"] {
   position: relative;
@@ -249,6 +246,33 @@ input[type=range]::-webkit-slider-runnable-track {
   display:inline-block;
   margin: auto;
   border: 1px solid black;
-  width:68px;
-  height: 35px;
+  width:30px;
+  height: 25px;
+  text-align: center;
+  border-radius: 10%;
+  margin-top:50px;
+}
+
+.button-container {
+  position: relative;
+  left: 310px;
+  bottom: 170px;
+  width: 150px;
+  height: 80px;
+  display: inline-block;
+    text-align: center;
+    padding-top: 3px;
+}
+
+#button1{
+    background: white;
+}
+#button2{
+    background: red;
+}
+#button3{
+    background: green;
+}
+#button4{
+    background: white;
 }
