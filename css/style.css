@@ -80,12 +80,12 @@ h2{
 
 }
 
-#pad {
+.pad {
     position: relative;
     display: inline-block;
     margin: auto;
     height: 40px;
-    width: 45px;
+    width: 55px;
     background: #594F4D;
     box-shadow: 1px 1px 1px grey;
     border-radius: 5px;
@@ -94,7 +94,7 @@ h2{
 
 }
 
-#pad:active {
+.pad:active {
     box-shadow: 0px 0px 0px black;
 
 }
