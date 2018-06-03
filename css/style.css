@@ -107,7 +107,8 @@ p {
 
 }
 
-.pad:active {
+.padActive {
+    background: grey;
     box-shadow: 0px 0px 0px black;
 
 }
@@ -167,7 +168,7 @@ input[type=range]:focus {
     box-shadow: 0px 0px 2px 0px black;
 }
 
-#middle-circle {
+#knob {
     position: relative;
     height: 20px;
     width: 20px;
