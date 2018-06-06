@@ -2,11 +2,12 @@ let volume = .25;
 let rate = 1.0;
 var knob = $('#knob');
 let loop = false;
+let currentSample = 1;
+
 
 const idArr = $(".pad").map(function (index) {
     return this.id;
 })
-
 
 
 //Drum Kit Banks
@@ -69,12 +70,27 @@ kit.reload = new Howl({
 
 //Sample Bank
 
+
 let sample = {};
 sample.A = new Howl({
-    src: ['https://s3.amazonaws.com/cssmpc/CanadianBling.wav'],
+    src: ['https://s3.amazonaws.com/cssmpc/Doda.wav'],
     volume: volume,
-    loop: true
+    loop: true,
+    preload: true,
+    sprite: {
+        loop: [0000, 2500]
+    }
 });
+sample.B = new Howl({
+    src: ['https://s3.amazonaws.com/cssmpc/Doda.wav'],
+    volume: volume,
+    loop: true,
+    preload: true,
+    sprite: {
+        loop: [0000, 2500]
+    }
+});
+
 
 
 
@@ -109,20 +125,69 @@ $(".pad").click(function (e) {
 
 
 //Sample Clicks
-$('#button3').click(function (e) {
-    $("#button3").toggleClass("samplePlay");
+$('#button1').click(function (e) {
+    $("#button1").toggleClass("samplePlay");
 
     if (loop === false) {
         loop = true;
         console.log("loop begin")
-        sample.A.play();
+        if (currentSample === 1) {
+            sample.A.play("loop");
+        } else if (currentSample === 2) {
+            sample.B.play("loop");
+
+        } else if (currentSample === 3) {
+            sample.C.play('loop');
+        } else {
+            console.log('error')
+        }
     } else {
         console.log("loop end")
         loop = false;
         sample.A.stop();
+        sample.B.stop();
+        sample.C.stop();
+
     }
 
+
+
 })
+
+$('#button3').click(function (e) {
+    if (currentSample > 1) {
+        currentSample--;
+
+        if (currentSample === 1) {
+            $("#text-display").text("Sample1");
+            currentSample = 1;
+            console.log(currentSample)
+
+        } else if (currentSample === 2) {
+            $("#text-display").text("Sample2");
+        } else if (currentSample === 3) {
+            $("#text-display").text("Sample3");
+        }
+
+    }
+})
+
+$('#button4').click(function (e) {
+    if (currentSample < 3) {
+        currentSample++;
+
+        if (currentSample === 1) {
+            $("#text-display").text("Sample1");
+        } else if (currentSample === 2) {
+            $("#text-display").text("Sample2");
+        } else if (currentSample === 3) {
+            $("#text-display").text("Sample3");
+            console.log(currentSample);
+        }
+
+    }
+})
+
 
 
 
